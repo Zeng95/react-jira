@@ -19,6 +19,8 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "autoprefixer": "^9.8.6",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.1",
@@ -53,6 +55,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,sass,scss,md}": "prettier --write"
