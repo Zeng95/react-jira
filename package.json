@@ -41,12 +41,12 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
   },
   "scripts": {
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix"
+    "lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "overrides": {
     "styled-components": "^5"
@@ -77,7 +77,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,sass,scss,md}": ["prettier --write", "eslint --fix"]
+    "src/**/*.{js,jsx,ts,tsx,json,css,sass,scss,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "msw": {
     "workerDirectory": "public"

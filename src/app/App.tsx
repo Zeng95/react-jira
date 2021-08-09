@@ -1,10 +1,13 @@
-import ProjectListPage from 'pages/project-list';
+import Home from 'pages/home';
+import React from 'react';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div id="app" className="flex flex-col mx-auto my-6">
-      <ProjectListPage />
+      {/* <TsReactTest /> */}
+      {/* <ProjectListPage /> */}
+      <Home />
     </div>
   );
 };
