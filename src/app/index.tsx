@@ -1,13 +1,13 @@
+import { AuthProvider } from 'context/auth-context';
 import Home from 'pages/home';
 import React from 'react';
-import './App.css';
 
 const App: React.FC = () => {
   return (
     <div id="app" className="flex flex-col mx-auto my-6">
-      {/* <TsReactTest /> */}
-      {/* <ProjectListPage /> */}
-      <Home />
+      <AuthProvider>
+        <Home />
+      </AuthProvider>
     </div>
   );
 };
