@@ -8,7 +8,7 @@ const isEmpty = (object: Record<string, unknown>): boolean => {
   return Object.keys(object).length === 0;
 };
 
-const cleanObject = (object: Record<string, unknown>): Record<string, unknown> => {
+const cleanObject = (object: Record<string, string>): Record<string, string> => {
   // Object.assign({}, object)
   const clonedObject = { ...object };
 

@@ -1,17 +1,17 @@
 import 'antd/dist/antd.less';
+import App from 'app';
 import 'assets/styles/css/index.css';
 import { loadDevTools } from 'jira-dev-tool';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app/App';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from 'reportWebVitals';
 
 loadDevTools(() => {
   ReactDOM.render(
     <React.StrictMode>
       <App />
     </React.StrictMode>,
-    document.getElementById('root')
+    document.getElementById('app')
   );
 });
 
