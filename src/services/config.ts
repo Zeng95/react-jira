@@ -1,2 +1,3 @@
 export const SUCCESS_OK = 200;
-export const LOCAL_STORAGE_KEY = '__auth_provider_token__';
+export const ERR_UNAUTHORIZED = 401;
+export const ERR_NOT_FOUND = 404;

@@ -8,7 +8,8 @@ const isEmpty = (object: Record<string, unknown>): boolean => {
   return Object.keys(object).length === 0;
 };
 
-const cleanObject = (object: Record<string, string>): Record<string, string> => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const cleanObject = (object: Record<string, string>) => {
   // Object.assign({}, object)
   const clonedObject = { ...object };
 

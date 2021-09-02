@@ -4,14 +4,14 @@ import { User } from 'ts/interfaces/user';
 
 const LOCALSTORAGE_KEY = '__auth_provider_token__';
 
-export const getToken = (): void => {
-  window.localStorage.getItem(LOCALSTORAGE_KEY);
+export const getToken = (): string => {
+  return localStorage.getItem(LOCALSTORAGE_KEY) || '';
 };
 
 export const setToken = (user: User): void => {
-  window.localStorage.setItem(LOCALSTORAGE_KEY, user.token || '');
+  localStorage.setItem(LOCALSTORAGE_KEY, user.token || '');
 };
 
 export const removeToken = (): void => {
-  window.localStorage.removeItem(LOCALSTORAGE_KEY);
+  localStorage.removeItem(LOCALSTORAGE_KEY);
 };

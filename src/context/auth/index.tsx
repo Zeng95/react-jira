@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import * as auth from 'services/auth';
 import { SUCCESS_OK } from 'services/config';
+import { getCurrentUser } from 'services/users';
 import { User } from 'ts/interfaces/user';
-import { setToken } from 'utils/auth-provider';
+import { getToken, setToken } from 'utils/auth-provider';
 
 interface AuthFormProps {
   username: string;
@@ -15,6 +16,24 @@ interface AuthContextType {
   login: (form: AuthFormProps) => Promise<void>;
   logout: () => Promise<void>;
 }
+
+const initializeUser = async (): Promise<User | null> => {
+  let user = null;
+
+  if (getToken()) {
+    try {
+      const response = await getCurrentUser();
+      user = response.data.user;
+    } catch (e) {
+      if (e instanceof Error) {
+        // * axios 可以直接在返回状态不为 2xx 的时候抛出异常
+        console.error(e);
+      }
+    }
+  }
+
+  return user;
+};
 
 const AuthContext = React.createContext<AuthContextType>({
   user: null,
@@ -33,7 +52,7 @@ export const AuthProvider: React.FC = (props) => {
       setUser(null);
     } catch (e) {
       if (e instanceof Error) {
-        console.error('Error:', e);
+        console.error(e);
       }
     }
   };
@@ -49,7 +68,7 @@ export const AuthProvider: React.FC = (props) => {
     } catch (e) {
       if (e instanceof Error) {
         // * axios 可以直接在返回状态不为 2xx 的时候抛出异常
-        console.error('Error:', e);
+        console.error(e);
       }
     }
   };
@@ -65,10 +84,14 @@ export const AuthProvider: React.FC = (props) => {
     } catch (e) {
       if (e instanceof Error) {
         // * axios 可以直接在返回状态不为 2xx 的时候抛出异常
-        console.error('Error:', e);
+        console.error(e);
       }
     }
   };
+
+  useEffect(() => {
+    initializeUser().then(setUser);
+  }, []);
 
   return React.createElement(AuthContext.Provider, { value: { user, register, login, logout } }, props.children);
 };

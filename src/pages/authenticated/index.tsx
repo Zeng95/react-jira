@@ -2,6 +2,7 @@ import { Button } from 'antd';
 import { useAuth } from 'context/auth';
 import React from 'react';
 import styled from 'styled-components';
+import ProjectListPage from './project-list';
 
 const Container = styled.div`
   max-width: 600px;
@@ -9,14 +10,14 @@ const Container = styled.div`
 `;
 
 const AuthenticatedApp: React.FC = () => {
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
 
   return (
     <Container>
       <Button type="primary" onClick={logout}>
         登出
       </Button>
-      <div>{user && <span>{`Hello ${user.name}`}</span>}</div>
+      <ProjectListPage />
     </Container>
   );
 };
