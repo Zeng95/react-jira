@@ -6,16 +6,20 @@ import RegisterPage from './register';
 
 const Container = styled.div`
   max-width: 600px;
-  margin: 0 auto;
+  margin: 100px auto;
 `;
 
 const UnauthenticatedApp: React.FC = () => {
   const [authenticated, setAuthenticated] = useState<boolean>(false);
 
+  const handleChangeAuthenticatedState = () => {
+    setAuthenticated(!authenticated);
+  };
+
   return (
     <Container>
       {authenticated ? <LoginPage /> : <RegisterPage />}
-      <Button type="primary" onClick={() => setAuthenticated(!authenticated)}>
+      <Button type="primary" onClick={handleChangeAuthenticatedState}>
         切换到{authenticated ? '注册' : '登录'}
       </Button>
     </Container>

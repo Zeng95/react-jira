@@ -1,4 +1,4 @@
-import { AuthProvider } from 'context/auth-context';
+import { AuthProvider } from 'context/auth';
 import Home from 'pages/home';
 import React from 'react';
 

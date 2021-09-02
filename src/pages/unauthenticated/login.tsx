@@ -1,5 +1,5 @@
 import { Button, Form, Input } from 'antd';
-import { useAuth } from 'context/auth-context';
+import { useAuth } from 'context/auth';
 import React from 'react';
 
 const LoginPage: React.FC = () => {
