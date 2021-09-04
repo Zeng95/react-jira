@@ -1,6 +1,5 @@
 # Ignore artifacts:
-/node_modules
-package.json
+build/
+node_modules/
 package-lock.json
 yarn.lock
-public
