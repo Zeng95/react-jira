@@ -5,26 +5,25 @@ import styled from 'styled-components';
 import LoginPage from './login';
 import RegisterPage from './register';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-`;
+const Container = styled.div.attrs({
+  className: 'flex flex-col justify-center items-center min-h-screen'
+})``;
 
-const Header = styled.header`
-  width: 100%;
+const Header = styled.header.attrs({
+  className: 'w-full bg-no-repeat bg-center'
+})`
   padding: 5rem 0;
-  background: url(${logo}) no-repeat center/8rem;
+  background-image: url(${logo});
+  background-size: 8rem;
 `;
 
-const ShadowCard = styled(Card)`
+const ShadowCard = styled(Card).attrs({
+  className: 'text-center'
+})`
   width: 40rem;
   min-height: 56rem;
   padding: 3.2rem 4rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
-  text-align: center;
 `;
 
 const UnauthenticatedApp: React.FC = () => {
