@@ -23,7 +23,7 @@ const LoginPage: React.FC = () => {
 
       {/* Action */}
       <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" className="w-full">
           登录
         </Button>
       </Form.Item>
