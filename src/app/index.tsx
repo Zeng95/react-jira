@@ -1,5 +1,5 @@
 import { AuthProvider } from 'context/auth';
-import Home from 'pages/home';
+import Home from 'pages/Home';
 import React from 'react';
 
 const App: React.FC = () => {

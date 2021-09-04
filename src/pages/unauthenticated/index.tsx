@@ -64,9 +64,7 @@ const UnauthenticatedApp: React.FC = () => {
         <Title>{authenticated ? '请登录' : '请注册'}</Title>
         {authenticated ? <LoginPage /> : <RegisterPage />}
         <Divider />
-        <a onClick={handleChangeAuthenticatedState}>
-          {authenticated ? '没有账号？注册新账号' : '已经有账号了？直接登录'}
-        </a>
+        <a onClick={handleChangeAuthenticatedState}>{authenticated ? '还没有账号？立即注册' : '已有账号？立即登录'}</a>
       </ShadowCard>
     </Container>
   );

@@ -1,6 +1,6 @@
 import { useAuth } from 'context/auth';
-import AuthenticatedApp from 'pages/authenticated';
-import UnauthenticatedApp from 'pages/unauthenticated';
+import AuthenticatedApp from 'pages/Authenticated';
+import UnauthenticatedApp from 'pages/Unauthenticated';
 import React from 'react';
 import styled from 'styled-components';
 

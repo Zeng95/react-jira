@@ -30,9 +30,7 @@ const List: React.FC<ListProps> = ({ users, list }) => {
             return (
               <tr className="text-center" key={project.id}>
                 <td className="border">{project.name}</td>
-                <td className="border">
-                  {(users.length && users.find((user) => user.id === project.personId)?.name) || '未知'}
-                </td>
+                <td className="border">{(users.length && users.find((user) => user.id === project.personId)?.name) || '未知'}</td>
               </tr>
             );
           })}

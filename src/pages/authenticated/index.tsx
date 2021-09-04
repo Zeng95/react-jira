@@ -1,24 +1,29 @@
 import { Button } from 'antd';
 import { useAuth } from 'context/auth';
+import Header from 'layout/Header';
+import Main from 'layout/Main';
 import React from 'react';
 import styled from 'styled-components';
-import ProjectListPage from './project-list';
+import ProjectListPage from './ProjectList';
 
-const Container = styled.div`
-  max-width: 600px;
-  padding: 100px 0;
-  margin: 0 auto;
-`;
+const Container = styled.div.attrs({
+  className: 'w-full'
+})``;
 
 const AuthenticatedApp: React.FC = () => {
   const { logout } = useAuth();
 
   return (
     <Container>
-      <Button type="primary" onClick={logout}>
-        登出
-      </Button>
-      <ProjectListPage />
+      <Header>
+        <Button type="primary" onClick={logout}>
+          登出
+        </Button>
+      </Header>
+
+      <Main>
+        <ProjectListPage />
+      </Main>
     </Container>
   );
 };
