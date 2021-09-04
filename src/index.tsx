@@ -1,6 +1,7 @@
 import 'antd/dist/antd.less';
 import App from 'app';
-import 'assets/styles/css/index.css';
+import 'assets/styles/index.css';
+import 'assets/styles/main.css';
 import { loadDevTools } from 'jira-dev-tool';
 import React from 'react';
 import ReactDOM from 'react-dom';

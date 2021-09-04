@@ -6,7 +6,8 @@ import ProjectListPage from './project-list';
 
 const Container = styled.div`
   max-width: 600px;
-  margin: 100px auto;
+  padding: 100px 0;
+  margin: 0 auto;
 `;
 
 const AuthenticatedApp: React.FC = () => {

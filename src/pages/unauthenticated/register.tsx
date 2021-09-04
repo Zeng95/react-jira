@@ -10,19 +10,19 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <Form labelCol={{ span: 8 }} wrapperCol={{ span: 16 }} onFinish={handleSubmit}>
+    <Form onFinish={handleSubmit}>
       {/* Username */}
-      <Form.Item label="用户名" name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
-        <Input />
+      <Form.Item name="username" rules={[{ required: true, message: 'Please input your username!' }]}>
+        <Input placeholder="用户名" />
       </Form.Item>
 
       {/* Password */}
-      <Form.Item label="密码" name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
-        <Input />
+      <Form.Item name="password" rules={[{ required: true, message: 'Please input your password!' }]}>
+        <Input placeholder="密码" />
       </Form.Item>
 
       {/* Action */}
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           注册
         </Button>

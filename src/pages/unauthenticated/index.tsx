@@ -1,12 +1,30 @@
-import { Button } from 'antd';
+import { Card, Divider } from 'antd';
+import logo from 'assets/images/logo.svg';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LoginPage from './login';
 import RegisterPage from './register';
 
 const Container = styled.div`
-  max-width: 600px;
-  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+`;
+
+const Header = styled.header`
+  width: 100%;
+  padding: 5rem 0;
+  background: url(${logo}) no-repeat center/8rem;
+`;
+
+const ShadowCard = styled(Card)`
+  width: 40rem;
+  min-height: 56rem;
+  padding: 3.2rem 4rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 10px;
+  text-align: center;
 `;
 
 const UnauthenticatedApp: React.FC = () => {
@@ -18,10 +36,14 @@ const UnauthenticatedApp: React.FC = () => {
 
   return (
     <Container>
-      {authenticated ? <LoginPage /> : <RegisterPage />}
-      <Button type="primary" onClick={handleChangeAuthenticatedState}>
-        切换到{authenticated ? '注册' : '登录'}
-      </Button>
+      <Header />
+      <ShadowCard>
+        {authenticated ? <LoginPage /> : <RegisterPage />}
+        <Divider />
+        <a onClick={handleChangeAuthenticatedState}>
+          {authenticated ? '没有账号？注册新账号' : '已经有账号了？直接登录'}
+        </a>
+      </ShadowCard>
     </Container>
   );
 };
