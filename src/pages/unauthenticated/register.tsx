@@ -2,7 +2,7 @@ import { Button, Form, Input } from 'antd';
 import { useAuth } from 'context/auth';
 import React from 'react';
 
-const RegisterPage: React.FC = () => {
+const Register: React.FC = () => {
   const { register } = useAuth();
 
   const handleSubmit = (values: { username: string; password: string }) => {
@@ -31,4 +31,4 @@ const RegisterPage: React.FC = () => {
   );
 };
 
-export default RegisterPage;
+export default Register;

@@ -4,8 +4,8 @@ import logo from 'assets/images/logo.svg';
 import right from 'assets/images/right.svg';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import LoginPage from './login';
-import RegisterPage from './register';
+import Login from './login';
+import Register from './register';
 
 const Container = styled.div.attrs({
   className: 'flex flex-col justify-center items-center min-h-screen'
@@ -53,19 +53,17 @@ const UnauthenticatedApp: React.FC = () => {
 
   return (
     <Container>
-      {/* Header */}
       <Header />
 
-      {/* Background */}
-      <Background />
-
-      {/* Main Content */}
+      {/* Form 表单 */}
       <ShadowCard>
         <Title>{authenticated ? '请登录' : '请注册'}</Title>
-        {authenticated ? <LoginPage /> : <RegisterPage />}
+        {authenticated ? <Login /> : <Register />}
         <Divider />
         <a onClick={handleChangeAuthenticatedState}>{authenticated ? '还没有账号？立即注册' : '已有账号？立即登录'}</a>
       </ShadowCard>
+
+      <Background />
     </Container>
   );
 };

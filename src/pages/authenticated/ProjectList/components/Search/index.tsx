@@ -1,4 +1,8 @@
+import { Input, Select } from 'antd';
 import React from 'react';
+
+const { Option } = Select;
+
 export interface Param {
   name: string;
   personId: string;
@@ -25,32 +29,28 @@ const Search: React.FC<SearchProps> = ({ users, param, setParam }) => {
     });
   };
 
-  const handleChnagePersonId = (event: React.FormEvent<HTMLSelectElement>) => {
-    const element = event.target as HTMLSelectElement;
-
+  const handleChnagePersonId = (value: string) => {
     setParam({
       ...param,
-      personId: element.value
+      personId: value
     });
   };
 
   return (
     <form className="m-2">
       {/* Name */}
-      <input className="border" type="text" onChange={handleChangeName} />
+      <Input className="border" type="text" onChange={handleChangeName} />
 
       {/* Person Ids */}
-      <select name="person-ids" id="person-id-select" onChange={handleChnagePersonId}>
-        <option value="">负责人</option>
+      <Select value={param.personId} onChange={handleChnagePersonId}>
+        <Option value="">负责人</Option>
         {users.length > 0 &&
-          users.map((user: User) => {
-            return (
-              <option key={user.id} value={user.id}>
-                {user.name}
-              </option>
-            );
-          })}
-      </select>
+          users.map((user: User) => (
+            <Option key={user.id} value={user.id}>
+              {user.name}
+            </Option>
+          ))}
+      </Select>
     </form>
   );
 };

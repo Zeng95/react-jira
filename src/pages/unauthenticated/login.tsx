@@ -2,7 +2,7 @@ import { Button, Form, Input } from 'antd';
 import { useAuth } from 'context/auth';
 import React from 'react';
 
-const LoginPage: React.FC = () => {
+const Login: React.FC = () => {
   const { login } = useAuth();
 
   const handleSubmit = (values: { username: string; password: string }) => {
@@ -31,4 +31,4 @@ const LoginPage: React.FC = () => {
   );
 };
 
-export default LoginPage;
+export default Login;

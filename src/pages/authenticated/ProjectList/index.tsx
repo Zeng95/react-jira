@@ -5,13 +5,13 @@ import { SUCCESS_OK } from 'services/config';
 import { getProjects } from 'services/projects';
 import { getUsers } from 'services/users';
 import { cleanObject } from 'utils';
-import List, { Project } from './components/List';
-import Search, { User } from './components/Search';
+import List, { Project } from './components/List/index';
+import Search, { User } from './components/Search/index';
 
 // * 使用 JavaScript 的同学，大部分的错误都是在 runtime 发现的
 // * 我们希望在静态代码中，就能找到其中的一些错误
 
-const ProjectListPage: React.FC = () => {
+const ProjectList: React.FC = () => {
   const { logout } = useAuth();
 
   const [users, setUsers] = useState<User[]>([]);
@@ -58,4 +58,4 @@ const ProjectListPage: React.FC = () => {
   );
 };
 
-export default ProjectListPage;
+export default ProjectList;
